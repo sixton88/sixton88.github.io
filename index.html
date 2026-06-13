@@ -994,6 +994,58 @@
         grid-template-columns:62px 1fr;
       }
     }
+    /* 모바일 하단 고정 문의 버튼 */
+.mobile-contact-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+}
+
+.contact-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.call-btn {
+  background: #222;
+  color: #fff;
+}
+
+.kakao-btn {
+  background: #FEE500;
+  color: #191919;
+}
+
+/* 하단 고정 버튼에 본문이 가려지지 않도록 여백 확보 */
+body {
+  padding-bottom: 88px;
+}
+
+/* PC 화면에서는 버튼 폭을 제한해서 너무 넓게 보이지 않게 처리 */
+@media (min-width: 768px) {
+  .mobile-contact-bar {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 520px;
+    border-radius: 18px 18px 0 0;
+  }
+}
   </style>
 </head>
 <body>
@@ -1391,5 +1443,14 @@
     <a class="call" href="tel:010-5464-3233">전화 문의</a>
     <a class="mail" href="sms:010-5464-3233">문자 사진 문의</a>
   </div>
+  <!-- 모바일 하단 고정 문의 버튼 -->
+<div class="mobile-contact-bar">
+  <a href="tel:010-5464-3233" class="contact-btn call-btn">
+    전화문의
+  </a>
+  <a href="https://pf.kakao.com/_pqRXX" target="_blank" rel="noopener" class="contact-btn kakao-btn">
+    카카오톡 상담
+  </a>
+</div>
 </body>
 </html>
